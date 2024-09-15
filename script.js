@@ -1,3 +1,4 @@
+// PRIMER EJERCICIO.
 // Funciones para calcular el perímetro y el área de cada figura
 
 function perimetroTriangulo(a, b, c) {
