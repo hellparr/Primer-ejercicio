@@ -1,7 +1,7 @@
 // PRIMER EJERCICIO.
 // Funciones para calcular el perímetro y el área de cada figura
 
-function perimetroTriangulo(a, b, c) {
+/* function perimetroTriangulo(a, b, c) {
     return a + b + c;
 }
 
@@ -94,4 +94,47 @@ function calcular() {
 }
 
 // Llamar a la función principal
-calcular();
+calcular(); */
+
+
+
+// SEGUNDO EJERCICIO.
+function obtenerEdades() {
+    const edades = [];
+    let cantidadMenores = 0, cantidadMayores = 0, cantidadAdultosMayores = 0;
+    let edadMasBaja = 120, edadMasAlta = 0, sumaEdades = 0;
+
+    for (let i = 0; i < 10; i++) {
+        let edad;
+        do {
+            edad = parseInt(prompt(`Ingresa la edad de la persona ${i + 1} (1-120 años):`));
+            if (edad < 1 || edad > 120) {
+                alert("Edad no válida. Debe estar entre 1 y 120.");
+            }
+        } while (edad < 1 || edad > 120);
+
+        edades.push(edad);
+        sumaEdades += edad;
+        if (edad < 18) {
+            cantidadMenores++;
+        } else if (edad >= 60) {
+            cantidadAdultosMayores++;
+        } else {
+            cantidadMayores++;
+        }
+
+        if (edad < edadMasBaja) edadMasBaja = edad;
+        if (edad > edadMasAlta) edadMasAlta = edad;
+    }
+
+    const promedioEdades = sumaEdades / edades.length;
+
+    alert(`Menores de edad: ${cantidadMenores}`);
+    alert(`Mayores de edad: ${cantidadMayores}`);
+    alert(`Adultos mayores (60+): ${cantidadAdultosMayores}`);
+    alert(`Edad más baja: ${edadMasBaja}`);
+    alert(`Edad más alta: ${edadMasAlta}`);
+    alert(`Promedio de edades: ${promedioEdades.toFixed(2)}`);
+}
+
+obtenerEdades();
