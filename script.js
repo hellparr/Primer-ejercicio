@@ -99,7 +99,7 @@ calcular(); */
 
 
 // SEGUNDO EJERCICIO.
-function obtenerEdades() {
+/* function obtenerEdades() {
     const edades = [];
     let cantidadMenores = 0, cantidadMayores = 0, cantidadAdultosMayores = 0;
     let edadMasBaja = 120, edadMasAlta = 0, sumaEdades = 0;
@@ -137,4 +137,35 @@ function obtenerEdades() {
     alert(`Promedio de edades: ${promedioEdades.toFixed(2)}`);
 }
 
-obtenerEdades();
+obtenerEdades(); */
+
+// TERCER EJERCICIO.
+
+function obtenerVectorOrdenado(tamano, vectorNum) {
+    const vector = [];
+
+    for (let i = 0; i < tamano; i++) {
+        let numero;
+        do {
+            numero = parseInt(prompt(`Ingresa el número ${i + 1} para el vector ${vectorNum}:`));
+            if (i > 0 && numero <= vector[i - 1]) {
+                alert("El número debe ser mayor que el anterior.");
+            }
+        } while (i > 0 && numero <= vector[i - 1]);
+
+        vector.push(numero);
+    }
+
+    return vector;
+}
+
+function mezclarVectores() {
+    const vector1 = obtenerVectorOrdenado(5, 1);
+    const vector2 = obtenerVectorOrdenado(5, 2);
+
+    const vectorMezclado = vector1.concat(vector2).sort((a, b) => a - b);
+    
+    alert(`Vector mezclado: ${vectorMezclado}`);
+}
+
+mezclarVectores();
