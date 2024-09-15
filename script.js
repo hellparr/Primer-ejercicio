@@ -141,7 +141,7 @@ obtenerEdades(); */
 
 // TERCER EJERCICIO.
 
-function obtenerVectorOrdenado(tamano, vectorNum) {
+/* function obtenerVectorOrdenado(tamano, vectorNum) {
     const vector = [];
 
     for (let i = 0; i < tamano; i++) {
@@ -168,4 +168,81 @@ function mezclarVectores() {
     alert(`Vector mezclado: ${vectorMezclado}`);
 }
 
-mezclarVectores();
+mezclarVectores(); */ 
+
+// CUARTO EJERCICIO.
+
+const personas = [];
+
+function agregarPersona() {
+    if (personas.length >= 6) {
+        alert("Ya se han registrado las 6 personas.");
+        return;
+    }
+
+    const persona = {
+        nombre: prompt("Ingresa el nombre:"),
+        cedula: prompt("Ingresa la cédula:"),
+        fechaNacimiento: prompt("Ingresa la fecha de nacimiento (DD/MM/AAAA):"),
+        correo: prompt("Ingresa el correo electrónico:"),
+        ciudadResidencia: prompt("Ingresa la ciudad de residencia:"),
+        ciudadOrigen: prompt("Ingresa la ciudad de origen:"),
+        cancionesFavoritas: []
+    };
+
+    for (let i = 0; i < 3; i++) {
+        const artista = prompt(`Ingresa el artista de la canción favorita ${i + 1}:`);
+        const titulo = prompt(`Ingresa el título de la canción favorita ${i + 1}:`);
+        persona.cancionesFavoritas.push({ artista, titulo });
+    }
+
+    personas.push(persona);
+    alert("Persona agregada exitosamente.");
+}
+
+function mostrarPersona() {
+    const posicion = parseInt(prompt("Ingresa la posición de la persona (1-6):")) - 1;
+
+    if (posicion >= 0 && posicion < personas.length) {
+        const persona = personas[posicion];
+        alert(`Nombre: ${persona.nombre}
+Cédula: ${persona.cedula}
+Fecha de Nacimiento: ${persona.fechaNacimiento}
+Correo: ${persona.correo}
+Ciudad de Residencia: ${persona.ciudadResidencia}
+Ciudad de Origen: ${persona.ciudadOrigen}
+Canciones Favoritas:
+1. ${persona.cancionesFavoritas[0].artista} - ${persona.cancionesFavoritas[0].titulo}
+2. ${persona.cancionesFavoritas[1].artista} - ${persona.cancionesFavoritas[1].titulo}
+3. ${persona.cancionesFavoritas[2].artista} - ${persona.cancionesFavoritas[2].titulo}`);
+    } else {
+        alert("Posición no válida.");
+    }
+}
+
+function menu() {
+    let opcion;
+    do {
+        opcion = parseInt(prompt(`Menú:
+1. Agregar persona
+2. Mostrar persona por posición
+3. Salir`));
+
+        switch (opcion) {
+            case 1:
+                agregarPersona();
+                break;
+            case 2:
+                mostrarPersona();
+                break;
+            case 3:
+                alert("Saliendo...");
+                break;
+            default:
+                alert("Opción no válida.");
+        }
+    } while (opcion !== 3);
+}
+
+menu();
+
