@@ -38,7 +38,7 @@ function calcular() {
     const tipoCalculo = prompt("¿Qué deseas calcular? (area o perimetro):").toLowerCase();
 
     let resultado;
-
+ 
     switch (figura) {
         case 'triangulo':
             const a = parseFloat(prompt("Ingresa el lado a:"));
